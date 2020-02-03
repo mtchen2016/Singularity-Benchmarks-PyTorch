@@ -39,15 +39,6 @@ cd AISC-CPU-Benchmarks
 Show the list of possible arguments through `--help` command.
 
 ```bash
-nvidia-smi
-
-```
-
-### 1. Sanity Check
-
-Show that the PyTorch is installed successfully and can use see the GPUs.
-
-```bash
 python3 mnist.py --help
 
 optional arguments:
