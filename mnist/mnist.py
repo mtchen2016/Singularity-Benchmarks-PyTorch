@@ -89,17 +89,27 @@ def main():
                         help='random seed (default: 1)')
     parser.add_argument('--log-interval', type=int, default=10, metavar='N',
                         help='how many batches to wait before logging training status')
-
     parser.add_argument('--save-model', action='store_true', default=False,
                         help='For Saving the current Model')
+    parser.add_argument('--num_cpus', type=int, default=1, metavar='N',
+                        help='number of CPU vCores to train with (default: 1)')
     args = parser.parse_args()
+    
     use_cuda = not args.no_cuda and torch.cuda.is_available()
 
     torch.manual_seed(args.seed)
 
     device = torch.device("cuda" if use_cuda else "cpu")
 
+    print("Number of CPU vCores specified to be used {}".format(args.num_cpus)
+    print("Total # of CPU threads on OS {}".format(os.cpu_count()))
+    print("Total # of usable CPU threads on OS {}".format(len(os.sched_getaffinity(0))))
+
+    print("Total # of CPU threads - PyTorch {}".format(torch.get_num_threads()))
+    print("Total # of Interop threads - PyTorch {}".format(torch.get_num_interop_threads()))
+    
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
+    
     train_loader = torch.utils.data.DataLoader(
         datasets.MNIST('../data', train=True, download=True,
                        transform=transforms.Compose([
@@ -107,6 +117,7 @@ def main():
                            transforms.Normalize((0.1307,), (0.3081,))
                        ])),
         batch_size=args.batch_size, shuffle=True, **kwargs)
+    
     test_loader = torch.utils.data.DataLoader(
         datasets.MNIST('../data', train=False, transform=transforms.Compose([
                            transforms.ToTensor(),
