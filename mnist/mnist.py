@@ -112,6 +112,10 @@ def main():
     print("Setting # of Intra-op and Inter-op CPU threads in PyTorch to {}".format(args.num_cpus))
     torch.set_num_threads(args.num_cpus)
     torch.set_num_interop_threads(args.num_cpus)
+    print()
+    print("Total # of Intra-op CPU threads - PyTorch {}".format(torch.get_num_threads()))
+    print("Total # of Inter-op threads - PyTorch {}".format(torch.get_num_interop_threads()))
+    print()
     
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
     
