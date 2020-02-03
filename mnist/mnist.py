@@ -134,6 +134,6 @@ def main():
 if __name__ == '__main__':    
     overall_start = time.time()
     main()
-    total_time = time.time() - epoch_start
+    total_time = time.time() - overall_start
     total_time = datetime.timedelta(seconds=total_time)
     print("Total time {}".format(total_time))      
