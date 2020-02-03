@@ -92,7 +92,7 @@ def main():
     parser.add_argument('--save-model', action='store_true', default=False,
                         help='For Saving the current Model')
     parser.add_argument('--num_cpus', type=int, default=1, metavar='N',
-                        help='number of CPU vCores to train with (default: 1)')
+                        help='number of CPU vCores to train with (default: use all available)')
     args = parser.parse_args()
     
     use_cuda = not args.no_cuda and torch.cuda.is_available()
@@ -101,12 +101,17 @@ def main():
 
     device = torch.device("cuda" if use_cuda else "cpu")
 
-    print("Number of CPU vCores specified to be used {}".format(args.num_cpus)
+    print()
+    print("Number of CPU vCores specified to be used {}".format(args.num_cpus))
     print("Total # of CPU threads on OS {}".format(os.cpu_count()))
     print("Total # of usable CPU threads on OS {}".format(len(os.sched_getaffinity(0))))
 
-    print("Total # of CPU threads - PyTorch {}".format(torch.get_num_threads()))
-    print("Total # of Interop threads - PyTorch {}".format(torch.get_num_interop_threads()))
+    print("Total # of Intra-op CPU threads - PyTorch {}".format(torch.get_num_threads()))
+    print("Total # of Inter-op threads - PyTorch {}".format(torch.get_num_interop_threads()))
+    print()
+    print("Setting # of Intra-op and Inter-op CPU threads in PyTorch to {}".format(args.num_cpus))
+    torch.set_num_threads(args.num_cpus)
+    torch.set_num_interop_threads(args.num_cpus)
     
     kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
     
