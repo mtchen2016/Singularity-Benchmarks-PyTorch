@@ -4,25 +4,7 @@ This repository contains the scripts and setup instructions for training models 
 
 ## Setup
 
-The following setup describes training these models in Azure in LCOW container (CPU only).
-
-#### Azure VM 
-
-- Request Azure VM
-- Install pre-requisites using the following commands
-
-    ```bash
-
-    sudo apt install gcc
-    sudo apt-get update
-    
-    ```
-
-#### LCOW
-
-Current setup assumes that the LCOW container does not have GPUs.
-
-### 2. Install PyTorch and other utilities
+### 1. Install PyTorch and other utilities
 
 Install Git, VIM, Python, PyTorch and other required packages with the following commands.
 
@@ -42,17 +24,17 @@ python3 -m pip install tensorboardX
 
 ```
 
-### 3. Clone the demo repository
+### 2. Clone the demo repository
 
 ```bash
 
-git clone https://github.com/rimman/pytorch-multigpu.git
-cd pytorch-multigpu
+git clone https://github.com/rimman/AISC-CPU-Benchmarks.git
+cd AISC-CPU-Benchmarks
 ```
 
-## Demo
+## Models
 
-### 0. Show GPUs
+### 1. MNIST
 
 Show the GPU information through `nvidia-smi` command.
 
