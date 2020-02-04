@@ -380,7 +380,7 @@ for i in range(len(transformed_dataset)):
 dataloader = DataLoader(transformed_dataset, 
                         batch_size=4,
                         shuffle=True, 
-                        num_workers=0) #change it back to 4 on linux
+                        num_workers=4) #change it to 0 on windows
 
 # Helper function to show a batch
 def show_landmarks_batch(sample_batched):
