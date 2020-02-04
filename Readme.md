@@ -62,7 +62,11 @@ Run the training as follows:
 python mnist.py --num_cpus 12 --epochs 10 
 ```
 
-### 2. Image Classifier
+### 2. Fashion MNIST
+
+Fashion-MNIST is a dataset of Zalando's article images—consisting of a training set of 60,000 examples and a test set of 10,000 examples. Each example is a 28x28 grayscale image, associated with a label from 10 classes. Fashion-MNIST can serve as a direct drop-in replacement for the original MNIST dataset for benchmarking machine learning algorithms. It shares the same image size and structure of training and testing splits.
+
+### 3. Image Classifier
 
 Here, we will use the CIFAR10 dataset. It has the classes: ‘airplane’, ‘automobile’, ‘bird’, ‘cat’, ‘deer’, ‘dog’, ‘frog’, ‘horse’, ‘ship’, ‘truck’. The images in CIFAR-10 are of size 3x32x32, i.e. 3-channel color images of 32x32 pixels in size.
 
@@ -73,7 +77,7 @@ Training an image classifier code will do the following steps in order:
 - Train the network on the training data
 - Test the network on the test data
 
-### 3. ImageNet
+### 4. ImageNet
 
 #### Download the ImageNet dataset
 The ImageNet Large Scale Visual Recognition Challenge (ILSVRC) dataset has 1000 categories and 1.2 million images. The images do not need to be preprocessed or packaged in any database, but the validation images need to be moved into appropriate subfolders.
