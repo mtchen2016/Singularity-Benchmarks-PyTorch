@@ -98,7 +98,11 @@ The ImageNet Large Scale Visual Recognition Challenge (ILSVRC) dataset has 1000 
   wget -qO- https://raw.githubusercontent.com/soumith/imagenetloader.torch/master/valprep.sh | bash
   ```
 
-### 3. Training
+### 5. Toy
+
+### 6. Distributed MNIST
+
+### 7. PyramidNet (Multi-GPU training)
 
 There are 3 directories for training. The command below show how to run them.
 
