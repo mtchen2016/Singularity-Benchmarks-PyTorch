@@ -62,7 +62,18 @@ Run the training as follows:
 python mnist.py --num_cpus 12 --epochs 10 
 ```
 
-### 2. ImageNet
+### 2. Image Classifier
+
+Here, we will use the CIFAR10 dataset. It has the classes: ‘airplane’, ‘automobile’, ‘bird’, ‘cat’, ‘deer’, ‘dog’, ‘frog’, ‘horse’, ‘ship’, ‘truck’. The images in CIFAR-10 are of size 3x32x32, i.e. 3-channel color images of 32x32 pixels in size.
+
+Training an image classifier code will do the following steps in order:
+- Load and normalizing the CIFAR10 training and test datasets using torchvision
+- Define a Convolutional Neural Network
+- Define a loss function
+- Train the network on the training data
+- Test the network on the test data
+
+### 3. ImageNet
 
 #### Download the ImageNet dataset
 The ImageNet Large Scale Visual Recognition Challenge (ILSVRC) dataset has 1000 categories and 1.2 million images. The images do not need to be preprocessed or packaged in any database, but the validation images need to be moved into appropriate subfolders.
