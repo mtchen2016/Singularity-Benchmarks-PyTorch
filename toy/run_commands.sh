@@ -1,0 +1,10 @@
+python3 main.py --init-method tcp://127.0.0.1:23456 --rank 0 --world-size 10
+python3 main.py --init-method tcp://127.0.0.1:23456 --rank 1 --world-size 10
+python3 main.py --init-method tcp://127.0.0.1:23456 --rank 2 --world-size 10
+python3 main.py --init-method tcp://127.0.0.1:23456 --rank 3 --world-size 10
+python3 main.py --init-method tcp://127.0.0.1:23456 --rank 4 --world-size 10
+python3 main.py --init-method tcp://127.0.0.1:23456 --rank 5 --world-size 10
+python3 main.py --init-method tcp://127.0.0.1:23456 --rank 6 --world-size 10
+python3 main.py --init-method tcp://127.0.0.1:23456 --rank 7 --world-size 10
+python3 main.py --init-method tcp://127.0.0.1:23456 --rank 8 --world-size 10
+python3 main.py --init-method tcp://127.0.0.1:23456 --rank 9 --world-size 10
