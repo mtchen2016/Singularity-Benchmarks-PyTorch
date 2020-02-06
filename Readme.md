@@ -118,6 +118,28 @@ The default learning rate schedule starts at 0.1 and decays by a factor of 10 ev
 python main.py -a alexnet --lr 0.01 [imagenet-folder with train and val folders]
 ```
 
+#### Multi-processing Distributed Data Parallel Training
+
+You should always use the NCCL backend for multi-processing distributed training since it currently provides the best distributed training performance.
+
+##### Single node, multiple GPUs:
+
+```bash
+python main.py -a resnet50 --dist-url 'tcp://127.0.0.1:FREEPORT' --dist-backend 'nccl' --multiprocessing-distributed --world-size 1 --rank 0 [imagenet-folder with train and val folders]
+```
+
+##### Multiple nodes:
+
+Node 0:
+```bash
+python main.py -a resnet50 --dist-url 'tcp://IP_OF_NODE0:FREEPORT' --dist-backend 'nccl' --multiprocessing-distributed --world-size 2 --rank 0 [imagenet-folder with train and val folders]
+```
+
+Node 1:
+```bash
+python main.py -a resnet50 --dist-url 'tcp://IP_OF_NODE0:FREEPORT' --dist-backend 'nccl' --multiprocessing-distributed --world-size 2 --rank 1 [imagenet-folder with train and val folders]
+```
+
 #### Usage
 
 ```
