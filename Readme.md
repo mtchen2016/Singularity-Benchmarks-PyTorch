@@ -88,7 +88,7 @@ Training an image classifier code will do the following steps in order:
 #### Download the ImageNet dataset
 The ImageNet Large Scale Visual Recognition Challenge (ILSVRC) dataset has 1000 categories and 1.2 million images. The images do not need to be preprocessed or packaged in any database, but the validation images need to be moved into appropriate subfolders.
 
-1. Download the images from http://image-net.org/download-images or ask Rimma (she has a local copy of data)
+1. Download the images from http://image-net.org/download-images or ask Rimma (she has a local copy of data). You will need **ILSVRC2012_img_train.tar** and **ILSVRC2012_img_val.tar**.
 
 2. Extract the training data:
   ```bash
@@ -176,6 +176,19 @@ optional arguments:
 
 
 ### 5. Toy
+
+This is a very basic example to validate distributed data parallel training. To run the code, use the following commands:
+
+**Worker - Rank 0**
+```
+$ python3 main.py --init-method tcp://127.0.0.1:23456 --rank 0 --world-size 2
+```
+
+**Worker - Rank 1**
+```
+$ python3 main.py --init-method tcp://127.0.0.1:23456 --rank 1 --world-size 2
+```
+
 
 ### 6. Distributed MNIST
 
