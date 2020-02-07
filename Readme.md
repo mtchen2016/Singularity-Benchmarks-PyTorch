@@ -46,20 +46,8 @@ See the [Readme](fashion_mnist/README.md) for description and execution.
 
 See the [Readme](classifier/README.md) for description and execution.
 
-### 4. ImageNet (alexnet, densenet121, densenet161, densenet169, densenet201, resnet101 
-•	resnet152 
-•	resnet18 
-•	resnet34 
-•	resnet50 
-•	squeezenet1_0 
-•	squeezenet1_1 
-•	vgg11
-•	vgg11_bn 
-•	vgg13 
-•	vgg13_bn 
-•	vgg16 
-•	vgg16_bn 
-•	vgg19 
+### 4. ImageNet 
+**Models:** alexnet, densenet121, densenet161, densenet169, densenet201, resnet101, resnet152, resnet18, resnet34, resnet50, squeezenet1_0, squeezenet1_1, vgg11, vgg11_bn, vgg13, vgg13_bn, vgg16, vgg16_bn, vgg19 
 
 See the [Readme](imagenet/README.md) for description and execution.
 
