@@ -1,6 +1,6 @@
 # AISC Training Benchmarks
 
-This repository contains the scripts and setup instructions for training models using CPU only.
+This repository contains the scripts and setup instructions for training models.
 
 ## Setup
 
