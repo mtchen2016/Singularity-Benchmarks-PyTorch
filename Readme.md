@@ -63,6 +63,6 @@ See the [Readme](distributed_mnist/README.md) for description and execution.
 
 See the [Readme](pyramid_net/README.md) for description and execution.
 
-### 8. Word-level language modeling RNN
+### 8. Word-level language RNN
 
 See the [Readme](word_language_model/README.md) for description and execution.
