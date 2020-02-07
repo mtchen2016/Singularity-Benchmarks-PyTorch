@@ -1,4 +1,4 @@
-### 8. Word-level language modeling RNN
+### Word-level language modeling RNN
 
 See the [Readme](word_language_model/README.md) for description and execution.
 
