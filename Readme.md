@@ -46,13 +46,7 @@ See the [Readme](fashion_mnist/README.md) for description and execution.
 
 See the [Readme](classifier/README.md) for description and execution.
 
-### 4. ImageNet
-• alexnet  
-•	densenet121
-•	densenet161 
-•	densenet169 
-•	densenet201
-•	resnet101 
+### 4. ImageNet (alexnet, densenet121, densenet161, densenet169, densenet201, resnet101 
 •	resnet152 
 •	resnet18 
 •	resnet34 
