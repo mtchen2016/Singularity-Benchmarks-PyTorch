@@ -32,7 +32,7 @@ git clone https://github.com/rimman/AISC-Benchmarks.git
 cd AISC-CPU-Benchmarks
 ```
 
-## Models
+## PyTorch Models
 
 ### 1. MNIST
 
