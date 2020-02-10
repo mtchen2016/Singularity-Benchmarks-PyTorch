@@ -66,3 +66,38 @@ See the [Readme](pyramid_net/README.md) for description and execution.
 ### 8. Word-level language RNN
 
 See the [Readme](word_language_model/README.md) for description and execution.
+
+## MLPerf Benchmark
+
+This directory contains reference implementations for the MLPerf benchmark.
+There are implementations for each of the 7 benchmarks in the MLPerf suite.
+
+- image_classification - Resnet-50 v1 applied to Imagenet.
+- object_detection - Mask R-CNN applied to COCO.
+- single_stage_detector - SSD applied to COCO 2017.
+- speech_recognition - DeepSpeech2 applied to Librispeech.
+- translation - Transformer applied to WMT English-German.
+- recommendation - Neural Collaborative Filtering applied to MovieLens 20 Million (ml-20m).
+- sentiment_analysis - Seq-CNN applied to IMDB dataset.
+- reinforcement - Mini-go applied to predicting pro game moves.
+- Each reference implementation provides the following:
+
+### 1. image_classification
+
+See the [Readme](mlpeft/image_classification/README.md) for description and execution.
+
+### 2. object_detection
+
+See the [Readme](mlpeft/object_detection/README.md) for description and execution.
+
+### 3. single_stage_detector
+
+See the [Readme](mlpeft/single_stage_detector/README.md) for description and execution.
+
+### 4. speech_recognition
+
+See the [Readme](mlpeft/speech_recognition/README.md) for description and execution.
+
+### 5. translation
+
+See the [Readme](mlpeft/translation/README.md) for description and execution.
