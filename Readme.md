@@ -28,8 +28,8 @@ python3 -m pip install tensorboardX
 
 ```bash
 
-git clone https://github.com/rimman/AISC-Benchmarks.git
-cd AISC-Benchmarks
+git clone https://github.com/rimman/AISC-Benchmarks-PyTorch.git
+cd AISC-Benchmarks-PyTorch
 ```
 
 ## PyTorch Models
