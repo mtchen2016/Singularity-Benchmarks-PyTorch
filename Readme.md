@@ -1,4 +1,4 @@
-# AISC Training Benchmarks
+# AISC Training Benchmarks - PyTorch
 
 This repository contains the scripts and setup instructions for training models.
 
