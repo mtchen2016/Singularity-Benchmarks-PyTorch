@@ -65,10 +65,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.jobName }}"
-
     - name: Azure Login
       uses: azure/login@v1
       with:
