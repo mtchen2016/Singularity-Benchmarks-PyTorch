@@ -93,7 +93,7 @@ jobs:
         inlineScript: |
           az extension add --source https://github.com/rimman/Singularity-Benchmarks-PyTorch/raw/master/aisc_cli-1.0.1334-py3-none-any.whl --yes
           az aisc --help
-          az aisc account create --location westus2 --locations name=westus2 failover-priority=1 --locations name=eastus failover-priority=2 --name inputs.accountName --resource-group inputs.resourceGroup
-          az aisc account delete  --account-name inputs.accountName --resource-group inputs.resourceGroup
+          az aisc account create --location westus2 --locations name=westus2 failover-priority=1 --locations name=eastus failover-priority=2 --name "accTest" --resource-group "rgGithubSingularity"
+          az aisc account delete  --account-name "accTest" --resource-group "rgGithubSingularity"
 
 
