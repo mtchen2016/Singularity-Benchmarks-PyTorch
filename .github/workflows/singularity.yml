@@ -75,5 +75,5 @@ jobs:
       with:
         azcliversion: 2.0.72
         inlineScript: |
-          az account show
-          az storage -h
+          az extension add --source https://github.com/rimman/Singularity-Benchmarks-PyTorch/raw/master/aisc_cli-1.0.1334-py3-none-any.whl --yes
+          az aisc --help
