@@ -9,10 +9,18 @@ on:
     # Inputs the Singularity workflow accepts.
     inputs:        
       resourceGroup:
-        # Friendly description to be shown in the UI instead of 'jobName'
+        # Friendly description to be shown in the UI instead of 'resourceGroup'
         description: 'Resource Group'
         # Default value if no value is explicitly provided
-        default: 'rgGithubActionsSingularity'
+        default: 'rgGithubSingularity'
+        # Input has to be provided for the workflow to run
+        required: true
+        
+      accountName:
+        # Friendly description to be shown in the UI instead of 'accountName'
+        description: 'Account Name'
+        # Default value if no value is explicitly provided
+        default: 'accGithubSingularity'
         # Input has to be provided for the workflow to run
         required: true   
         
@@ -85,6 +93,7 @@ jobs:
         inlineScript: |
           az extension add --source https://github.com/rimman/Singularity-Benchmarks-PyTorch/raw/master/aisc_cli-1.0.1334-py3-none-any.whl --yes
           az aisc --help
-          az group create --location westus2 --name inputs.resourceGroup
-          az group delete  --name inputs.resourceGroup
+          az aisc account create --location westus2 --locations name=westus2 failover-priority=1 --locations name=eastus failover-priority=2 --name inputs.accountName --resource-group inputs.resourceGroup
+          az aisc account delete  --account-name inputs.accountName --resource-group inputs.resourceGroup
+
 
