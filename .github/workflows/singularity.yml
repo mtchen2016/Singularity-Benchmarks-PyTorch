@@ -15,6 +15,54 @@ on:
         default: 'World'
         # Input has to be provided for the workflow to run
         required: true
+        
+      jobName:
+        # Friendly description to be shown in the UI instead of 'jobName'
+        description: 'Job Name'
+        # Default value if no value is explicitly provided
+        default: 'jobFromGithub'
+        # Input has to be provided for the workflow to run
+        required: true   
+        
+      instanceType:
+        # Friendly description to be shown in the UI instead of 'instanceType'
+        description: 'Instance Type'
+        # Default value if no value is explicitly provided
+        default: 'AISupercomputer.D1'
+        # Input has to be provided for the workflow to run
+        required: true  
+        
+      instanceCount:
+        # Friendly description to be shown in the UI instead of 'instanceCount'
+        description: 'Instance Count'
+        # Default value if no value is explicitly provided
+        default: '1'
+        # Input has to be provided for the workflow to run
+        required: true
+        
+      program:
+        # Friendly description to be shown in the UI instead of 'program'
+        description: 'Program'
+        # Default value if no value is explicitly provided
+        default: ''
+        # Input has to be provided for the workflow to run
+        required: false   
+        
+      programArgs:
+        # Friendly description to be shown in the UI instead of 'programArgs'
+        description: 'ProgramArgs'
+        # Default value if no value is explicitly provided
+        default: ''
+        # Input has to be provided for the workflow to run
+        required: false   
+
+      location:
+        # Friendly description to be shown in the UI instead of 'location'
+        description: 'Location'
+        # Default value if no value is explicitly provided
+        default: ''
+        # Input has to be provided for the workflow to run
+        required: true   
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
