@@ -20,7 +20,7 @@ on:
         # Friendly description to be shown in the UI instead of 'jobName'
         description: 'Job Name'
         # Default value if no value is explicitly provided
-        default: 'jobFromGithub'
+        default: 'singularityJobSubmittedFromGithub'
         # Input has to be provided for the workflow to run
         required: true   
         
@@ -28,7 +28,7 @@ on:
         # Friendly description to be shown in the UI instead of 'instanceType'
         description: 'Instance Type'
         # Default value if no value is explicitly provided
-        default: 'AISupercomputer.D1'
+        default: 'AISupercomputer.NC24r_v3'
         # Input has to be provided for the workflow to run
         required: true  
         
@@ -60,7 +60,7 @@ on:
         # Friendly description to be shown in the UI instead of 'location'
         description: 'Location'
         # Default value if no value is explicitly provided
-        default: ''
+        default: 'eastus'
         # Input has to be provided for the workflow to run
         required: true   
 
