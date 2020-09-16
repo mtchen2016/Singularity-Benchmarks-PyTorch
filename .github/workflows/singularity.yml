@@ -8,6 +8,14 @@ on:
   workflow_dispatch:
     # Inputs the Singularity workflow accepts.
     inputs:        
+      resourceGroup:
+        # Friendly description to be shown in the UI instead of 'jobName'
+        description: 'Resource Group'
+        # Default value if no value is explicitly provided
+        default: 'rgGithubSingularity'
+        # Input has to be provided for the workflow to run
+        required: true   
+        
       jobName:
         # Friendly description to be shown in the UI instead of 'jobName'
         description: 'Job Name'
@@ -59,7 +67,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "greet"
-  greet:
+  SingularityJob:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -77,3 +85,6 @@ jobs:
         inlineScript: |
           az extension add --source https://github.com/rimman/Singularity-Benchmarks-PyTorch/raw/master/aisc_cli-1.0.1334-py3-none-any.whl --yes
           az aisc --help
+          az group create --location westus2 --name inputs.resourceGroup
+          az group delete  --name inputs.resourceGroup
+
