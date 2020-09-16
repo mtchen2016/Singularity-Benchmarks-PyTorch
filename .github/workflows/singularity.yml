@@ -94,14 +94,8 @@ jobs:
           az extension add --source https://github.com/rimman/Singularity-Benchmarks-PyTorch/raw/master/aisc_cli-1.0.1334-py3-none-any.whl --yes
           az aisc --help
           az aisc account create --location westus2 --locations name=westus2 failover-priority=1 --locations name=eastus failover-priority=2 --name "accTest1" --resource-group "rgGithubSingularity"
-          $jobName="myBatchJob"
-          $instanceType="AISupercomputer.NC12_v3"
-          $instanceCount=1 
-          $program="python"
-          $programArgs="/home/aiscuser/samples/verify-setup.py"
-          $region="eastus"
-          $placementProperties='[{"instanceTypes":[{"instanceType":"'+$instanceType+'","scalePolicy":{"autoScale":null,"minInstanceTypeCount":null,"maxInstanceTypeCount":null,"currentInstanceTypeCount":"'+$instanceCount+'"}}],"location":"'+$region+'"}]' | ConvertTo-Json
-          az aisc job create --name $jobName --pytorch-framework-image --placement-policies $placementProperties --account-name "accTest" --resource-group "rgGithubSingularity" --program $program --program-args $programArgs 
+          $placementProperties='[{"instanceTypes":[{"instanceType":"'+"AISupercomputer.NC12_v3"+'","scalePolicy":{"autoScale":null,"minInstanceTypeCount":null,"maxInstanceTypeCount":null,"currentInstanceTypeCount":"'+"1"+'"}}],"location":"'+"eastus"+'"}]' | ConvertTo-Json
+          az aisc job create --name "myBatchJob" --pytorch-framework-image --placement-policies $placementProperties --account-name "accTest" --resource-group "rgGithubSingularity" --program "python" --program-args "/home/aiscuser/samples/verify-setup.py"
           az aisc job show --name $jobName --account-name "accTest" --resource-group "rgGithubSingularity"
           az aisc account delete --name "accTest" --resource-group "rgGithubSingularity" --yes
 
