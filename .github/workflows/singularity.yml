@@ -93,6 +93,6 @@ jobs:
         inlineScript: |
           az extension add --source https://github.com/rimman/Singularity-Benchmarks-PyTorch/raw/master/aisc_cli-1.0.1334-py3-none-any.whl --yes
           az aisc --help
-          az aisc account delete  --name "accTest1" --resource-group "rgGithubSingularity"
+          az aisc account delete --name "accTest" --resource-group "rgGithubSingularity"
 
 
