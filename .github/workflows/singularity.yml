@@ -7,15 +7,7 @@ name: Singularity workflow
 on:
   workflow_dispatch:
     # Inputs the Singularity workflow accepts.
-    inputs:
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
-        # Default value if no value is explicitly provided
-        default: 'World'
-        # Input has to be provided for the workflow to run
-        required: true
-        
+    inputs:        
       jobName:
         # Friendly description to be shown in the UI instead of 'jobName'
         description: 'Job Name'
@@ -28,7 +20,7 @@ on:
         # Friendly description to be shown in the UI instead of 'instanceType'
         description: 'Instance Type'
         # Default value if no value is explicitly provided
-        default: 'AISupercomputer.NC24r_v3'
+        default: 'AISupercomputer.ND40rs_v2'
         # Input has to be provided for the workflow to run
         required: true  
         
@@ -60,7 +52,7 @@ on:
         # Friendly description to be shown in the UI instead of 'location'
         description: 'Location'
         # Default value if no value is explicitly provided
-        default: 'eastus'
+        default: 'westus2'
         # Input has to be provided for the workflow to run
         required: true   
 
@@ -75,7 +67,7 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+      run: echo "Hello ${{ github.event.inputs.jobName }}"
 
     - name: Azure Login
       uses: azure/login@v1
