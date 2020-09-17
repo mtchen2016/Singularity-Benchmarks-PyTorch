@@ -52,7 +52,7 @@ on:
         # Friendly description to be shown in the UI instead of 'program'
         description: 'Program'
         # Default value if no value is explicitly provided
-        default: ''
+        default: 'python'
         # Input has to be provided for the workflow to run
         required: false   
         
@@ -60,7 +60,7 @@ on:
         # Friendly description to be shown in the UI instead of 'programArgs'
         description: 'ProgramArgs'
         # Default value if no value is explicitly provided
-        default: ''
+        default: '/home/aiscuser/samples/verify-setup.py'
         # Input has to be provided for the workflow to run
         required: false   
 
