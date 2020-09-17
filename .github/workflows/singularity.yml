@@ -94,8 +94,8 @@ jobs:
           az extension add --source https://github.com/rimman/Singularity-Benchmarks-PyTorch/raw/master/aisc_cli-1.0.1334-py3-none-any.whl --yes
           az aisc --help
           az aisc account create --location westus2 --locations name=westus2 failover-priority=1 --locations name=eastus failover-priority=2 --name "accTest" --resource-group "rgGithubSingularity"
-          az aisc job create --name ${{inputs.jobName}} --pytorch-framework-image --placement-policies "[{\"instanceTypes\":[{\"instanceType\":\"AISupercomputer.NC6\",\"scalePolicy\":{\"autoScale\":null,\"minInstanceTypeCount\":null,\"maxInstanceTypeCount\":null,\"currentInstanceTypeCount\":\"1\"}}],\"location\":\"eastus\"}]" --account-name "accTest" --resource-group "rgGithubSingularity" --program "python" --program-args "/home/aiscuser/samples/verify-setup.py"
-          az aisc job show --name ${{inputs.jobName}} --account-name "accTest" --resource-group "rgGithubSingularity"
+          az aisc job create --name ${{ github.event.inputs.jobName }} --pytorch-framework-image --placement-policies "[{\"instanceTypes\":[{\"instanceType\":\"AISupercomputer.NC6\",\"scalePolicy\":{\"autoScale\":null,\"minInstanceTypeCount\":null,\"maxInstanceTypeCount\":null,\"currentInstanceTypeCount\":\"1\"}}],\"location\":\"eastus\"}]" --account-name "accTest" --resource-group "rgGithubSingularity" --program "python" --program-args "/home/aiscuser/samples/verify-setup.py"
+          az aisc job show --name ${{ github.event.inputs.jobName }} --account-name "accTest" --resource-group "rgGithubSingularity"
           az aisc account delete --name "accTest" --resource-group "rgGithubSingularity" --yes
 
 
