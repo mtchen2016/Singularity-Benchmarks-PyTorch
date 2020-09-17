@@ -71,6 +71,14 @@ on:
         default: 'westus2'
         # Input has to be provided for the workflow to run
         required: true   
+        
+      jobLocation:
+        # Friendly description to be shown in the UI instead of 'jobLocation'
+        description: 'Job Location'
+        # Default value if no value is explicitly provided
+        default: 'eastus'
+        # Input has to be provided for the workflow to run
+        required: true   
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -93,8 +101,8 @@ jobs:
         inlineScript: |
           az extension add --source https://github.com/rimman/Singularity-Benchmarks-PyTorch/raw/master/aisc_cli-1.0.1334-py3-none-any.whl --yes
           az aisc --help
-          az aisc account create --location westus2 --locations name=westus2 failover-priority=1 --locations name=eastus failover-priority=2 --name ${{ github.event.inputs.accountName }} --resource-group ${{ github.event.inputs.resourceGroup }}
-          az aisc job create --name ${{ github.event.inputs.jobName }} --pytorch-framework-image --placement-policies "[{\"instanceTypes\":[{\"instanceType\":\"AISupercomputer.NC6\",\"scalePolicy\":{\"autoScale\":null,\"minInstanceTypeCount\":null,\"maxInstanceTypeCount\":null,\"currentInstanceTypeCount\":\"1\"}}],\"location\":\"eastus\"}]" --account-name ${{ github.event.inputs.accountName }} --resource-group ${{ github.event.inputs.resourceGroup }} --program "python" --program-args "/home/aiscuser/samples/verify-setup.py"
+          az aisc account create --location ${{ github.event.inputs.location }} --locations name=${{ github.event.inputs.location }} failover-priority=1 --locations name=eastus failover-priority=2 --name ${{ github.event.inputs.accountName }} --resource-group ${{ github.event.inputs.resourceGroup }}
+          az aisc job create --name ${{ github.event.inputs.jobName }} --pytorch-framework-image --placement-policies "[{\"instanceTypes\":[{\"instanceType\":\"AISupercomputer.NC6\",\"scalePolicy\":{\"autoScale\":null,\"minInstanceTypeCount\":null,\"maxInstanceTypeCount\":null,\"currentInstanceTypeCount\":\"1\"}}],\"location\":\" ${{ github.event.inputs.jobLocation }} \"}]" --account-name ${{ github.event.inputs.accountName }} --resource-group ${{ github.event.inputs.resourceGroup }} --program "python" --program-args "/home/aiscuser/samples/verify-setup.py"
           az aisc job show --name ${{ github.event.inputs.jobName }} --account-name ${{ github.event.inputs.accountName }} --resource-group ${{ github.event.inputs.resourceGroup }}
           az aisc account delete --name ${{ github.event.inputs.accountName }} --resource-group ${{ github.event.inputs.resourceGroup }} --yes
 
