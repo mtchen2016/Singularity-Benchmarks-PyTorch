@@ -36,7 +36,7 @@ on:
         # Friendly description to be shown in the UI instead of 'instanceType'
         description: 'Instance Type'
         # Default value if no value is explicitly provided
-        default: 'AISupercomputer.ND40rs_v2'
+        default: 'AISupercomputer.NC6'
         # Input has to be provided for the workflow to run
         required: true  
         
@@ -102,7 +102,7 @@ jobs:
           az extension add --source https://github.com/rimman/Singularity-Benchmarks-PyTorch/raw/master/aisc_cli-1.0.1334-py3-none-any.whl --yes
           az aisc --help
           az aisc account create --location ${{ github.event.inputs.location }} --locations name=${{ github.event.inputs.location }} failover-priority=1 --locations name=eastus failover-priority=2 --name ${{ github.event.inputs.accountName }} --resource-group ${{ github.event.inputs.resourceGroup }}
-          az aisc job create --name ${{ github.event.inputs.jobName }} --pytorch-framework-image --placement-policies "[{\"instanceTypes\":[{\"instanceType\":\"AISupercomputer.NC6\",\"scalePolicy\":{\"autoScale\":null,\"minInstanceTypeCount\":null,\"maxInstanceTypeCount\":null,\"currentInstanceTypeCount\":\"1\"}}],\"location\":\"${{ github.event.inputs.jobLocation }}\"}]" --account-name ${{ github.event.inputs.accountName }} --resource-group ${{ github.event.inputs.resourceGroup }} --program "python" --program-args "/home/aiscuser/samples/verify-setup.py"
+          az aisc job create --name ${{ github.event.inputs.jobName }} --pytorch-framework-image --placement-policies "[{\"instanceTypes\":[{\"instanceType\":\"${{ github.event.inputs.instanceType }}\",\"scalePolicy\":{\"autoScale\":null,\"minInstanceTypeCount\":null,\"maxInstanceTypeCount\":null,\"currentInstanceTypeCount\":\"${{ github.event.inputs.instanceCount }}\"}}],\"location\":\"${{ github.event.inputs.jobLocation }}\"}]" --account-name ${{ github.event.inputs.accountName }} --resource-group ${{ github.event.inputs.resourceGroup }} --program "python" --program-args "/home/aiscuser/samples/verify-setup.py"
           az aisc job show --name ${{ github.event.inputs.jobName }} --account-name ${{ github.event.inputs.accountName }} --resource-group ${{ github.event.inputs.resourceGroup }}
           az aisc account delete --name ${{ github.event.inputs.accountName }} --resource-group ${{ github.event.inputs.resourceGroup }} --yes
 
